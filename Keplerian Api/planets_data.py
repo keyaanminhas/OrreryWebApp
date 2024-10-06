@@ -134,7 +134,7 @@ def calculate_coordinates(planet_name, JDate):
     long_node1 = long_node[0] + long_node[1]*T
 
     peri = long_peri1 - long_node1
-    M = L1 - long_peri1 + b*(np.square(T)) + c*(np.cos(f*T)) + s*(np.sin(f*T))     #f*T might be radians or degrees, assumed radians
+    M = L1 - long_peri1 + b*(np.square(T)) + c*(np.cos(f*T)) + s*(np.sin(f*T))
     M1 = modulate_mean_anomaly(M)
     e2 = np.rad2deg(e1)
     E = M1 + e2*(np.sin(np.deg2rad(M1)))
