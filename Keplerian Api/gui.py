@@ -34,7 +34,7 @@ def calculate():
 
     try:
         x_au, y_au, z_au, x_km, y_km, z_km = calculate_coordinates(planet_name, JDate)
-        result_text.set(f"Coordinates (AU): ({x_au:.4f}, {y_au:.4f}, {z_au:.4f})\n"
+        result_text.set(f"Coordinates (AU): ({x_au:.6f}, {y_au:.6f}, {z_au:.6f})\n"
                          f"Coordinates (KM): ({x_km:.2f}, {y_km:.2f}, {z_km:.2f})")
     except:
         messagebox.showerror("Error", f"Could not calculate coordinates for {planet_name}.")

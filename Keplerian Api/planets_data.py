@@ -141,7 +141,7 @@ def calculate_coordinates(planet_name, JDate):
     delta_M = M1 - (E - e2*(np.sin(np.deg2rad(E))))
     delta_E = delta_M/(1 - e1*(np.cos(np.deg2rad(E))))
     E = E + delta_E
-    while np.abs(delta_E) > 0.001:
+    while np.abs(delta_E) > 0.0001:
         delta_M = M1 - (E - e2*(np.sin(np.deg2rad(E))))
         delta_E = delta_M/(1 - e1*(np.cos(np.deg2rad(E))))
         E = E + delta_E

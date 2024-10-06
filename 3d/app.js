@@ -384,15 +384,30 @@ renderer.domElement.addEventListener('click', (event) => {
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(planets.map(p => p.mesh));
+    const intersects = raycaster.intersectObjects([...planets.map(p => p.mesh), sun]);
 
     if (intersects.length > 0) {
         const planet = intersects[0].object;
         const planetIndex = planets.findIndex(p => p.mesh === planet);
-        if (planetIndex !== -1) {
+        if (planetIndex !== -1 && intersects[0] !== sun) {
             const planetDetails = details[planetIndex].info;
-            createModal({ name: details[planetIndex].name, radius: details[planetIndex].radius, distance: details[planetIndex].distance, period: details[planetIndex].period, rotation_period: details[planetIndex].rotation_period, info: planetDetails })
-            ;
+            createModal({ name: details[planetIndex].name, radius: details[planetIndex].radius, distance: details[planetIndex].distance, period: details[planetIndex].period, rotation_period: details[planetIndex].rotation_period, info: planetDetails });
+        } else if (intersects[0].object === sun) {
+            createModal({
+                name: 'Sun',
+                radius: 696340,
+                distance: 0,
+                period: 0,
+                rotation_period: 25,
+                info: {
+                    density: 1.41,
+                    gravity: 274,
+                    temperature: 5505,
+                    moons: 0,
+                    made_of: 'Hydrogen, Helium',
+                    description: 'The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process.'
+                }
+            });
         }
     }
 });
@@ -455,7 +470,7 @@ renderer.domElement.addEventListener('mousemove', (event) => {
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(planets.map(p => p.mesh));
+    const intersects = raycaster.intersectObjects([...planets.map(p => p.mesh), sun]);
 
     if (intersects.length > 0) {
         document.body.style.cursor = 'pointer';
