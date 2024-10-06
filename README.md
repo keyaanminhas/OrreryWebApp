@@ -12,8 +12,8 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 
 ## Features
 
-- **Realistic Orbits**: Planetary motion based on Kepler's laws, with data obtained from NASA.
-- **Rotating Planets**: Each planet rotates around its own axis according to its real rotation period.
+- **Realistic Orbits**: Planetary motion in the 3D view is based on Kepler's laws, with data obtained from NASA. The 2D view, however, has circular orbits for the sake of simplicity.
+- **Rotating Planets**: In the 2D view, each planet rotates around its own axis according to its real rotation period. This is prevented in the 3D view due to heavy performance impact due to redrawing the sphere every moment.
 - **Interactive UI**: Click on any planet to view additional information.
 - **Adjustable Time Scale**: Use a slider to change the speed of time and observe the effects on orbital motion.
 - **Realistic Textures and Atmosphere**: Each planet has unique textures, including Saturn's rings and Venus's atmospheric coloring.
