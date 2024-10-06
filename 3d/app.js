@@ -100,7 +100,7 @@ scene.add(sun);
 const starGeometry = new THREE.BufferGeometry();
 const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1, emissive: 0xffffff });
 for (let i = 0; i < 25; i++) {
-    const starLight = new THREE.PointLight(0xffffff, 0.85, 600); // Increase distance to 1000
+    const starLight = new THREE.PointLight(0xffffff, 0.5, 600); // Increase distance to 1000
     let x, y, z;
     do {
         x = THREE.MathUtils.randFloatSpread(1000);
@@ -510,4 +510,51 @@ window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Create a dropdown for selecting planets
+const dropdown = document.createElement('select');
+dropdown.style.position = 'absolute';
+dropdown.style.top = '110px';
+dropdown.style.left = '10px';
+document.body.appendChild(dropdown);
+
+// Populate the dropdown with planet names
+details.forEach((planet, index) => {
+    const option = document.createElement('option');
+    option.value = index;
+    option.text = planet.name;
+    dropdown.appendChild(option);
+});
+
+// Event listener for dropdown selection
+dropdown.addEventListener('change', (event) => {
+    const selectedIndex = event.target.value;
+    const selectedPlanet = planets[selectedIndex];
+    if (selectedPlanet) {
+        controls.target.copy(selectedPlanet.mesh.position);
+        controls.update();
+        // Smoothly move the camera closer to the selected planet
+        const targetPosition = new THREE.Vector3();
+        targetPosition.copy(selectedPlanet.mesh.position);
+        targetPosition.z += 5; // Adjust this value to control how close the camera gets
+    }
+});
+// Create a zoom slider
+const zoomSlider = document.createElement('input');
+zoomSlider.type = 'range';
+zoomSlider.min = '5';
+zoomSlider.max = '75';
+zoomSlider.value = '75'; // Default to the lowest value (widest FOV)
+zoomSlider.step = '1';
+zoomSlider.style.position = 'absolute';
+zoomSlider.style.bottom = '150px';
+zoomSlider.style.left = '-50px';
+zoomSlider.style.transform = 'rotate(90deg)'
+document.body.appendChild(zoomSlider);
+
+// Event listener for zoom slider
+zoomSlider.addEventListener('input', (event) => {
+    camera.fov = event.target.value;
+    camera.updateProjectionMatrix();
 });
