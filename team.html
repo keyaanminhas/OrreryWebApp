@@ -88,9 +88,31 @@
                 max-width: 100%;
             }
         }
+        button {
+            padding: 2px 12px;
+            font-size: 30px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            scale: 1;
+            animation: fadeIn 3s ease-in-out;
+            border-radius: 20px;
+            border-bottom: 7px solid #184f23;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        button:hover {
+            background-color: #50dd6c;
+            scale: 1.1;
+            border-bottom: 3px solid #4CAF50;
+        }
     </style>
 
     <div class="team-section">
+        <a href="../index.html" style="position: absolute; left: 10px; top: 10px;">
+            <button>&lAarr;</button>
+        </a>
         <h1>Meet the Team</h1>
         <hr>
         <div class="team-container">

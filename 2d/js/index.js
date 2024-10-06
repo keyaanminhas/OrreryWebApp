@@ -323,7 +323,7 @@ zoomSlider.max = '2';
 zoomSlider.step = '0.01';
 zoomSlider.value = '1';
 zoomSlider.style.position = 'absolute';
-zoomSlider.style.bottom = '100px';
+zoomSlider.style.bottom = '150px';
 zoomSlider.style.left = '-50px';
 zoomSlider.style.transform = 'rotate(-90deg)';
 document.body.appendChild(zoomSlider);
