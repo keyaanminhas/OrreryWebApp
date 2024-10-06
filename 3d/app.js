@@ -514,17 +514,3 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
-// Limit the camera distance
-const maxCameraDistance = 700;
-
-
-const limitCameraDistance = () => {
-    const distance = camera.position.length();
-    if (distance > maxCameraDistance) {
-        camera.position.setLength(maxCameraDistance);
-    }
-    requestAnimationFrame(limitCameraDistance);
-};
-
-limitCameraDistance();
