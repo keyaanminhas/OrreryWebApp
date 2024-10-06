@@ -483,9 +483,6 @@ renderer.domElement.addEventListener('click', (event) => {
     if (intersects.length > 0) {
         controls.target.copy(sun.position);
         controls.update();
-    } else {
-        controls.target.set(0, 0, 0); // Reset target to origin
-        controls.update();
     }
 });
 
