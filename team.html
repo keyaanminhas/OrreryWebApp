@@ -9,11 +9,11 @@
 <body>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #222222;
             color: #fff;
+            font-family: Roboto, sans-serif;
         }
         .team-section {
             text-align: center;
@@ -22,6 +22,8 @@
         .team-section h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 500;
         }
         .team-container {
             display: flex;
@@ -34,7 +36,7 @@
             background-color: #0a0a0a;
             margin: 10px;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             width: 300px;
             text-wrap: wrap;
@@ -61,11 +63,25 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
         .team-member h3 {
-            margin: 10px 0 5px;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 30px 0 0 0;
         }
         .team-member p {
             color: #777;
             font-weight: 600;
+            margin: 10px 0 30px 0;
+            font-size: 18px;
+        }
+        hr {
+            height: 0.1px;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 50%;
+            margin: 20px auto 20px auto;
+            background-color: #777;
+            color: #777;
+
         }
         @media (max-width: 768px) {
             .team-member {
@@ -76,6 +92,7 @@
 
     <div class="team-section">
         <h1>Meet the Team</h1>
+        <hr>
         <div class="team-container">
             <div class="team-member">
                 <img src="2d/imgs/keyaan.jpg" alt="Team Member 1">
@@ -84,17 +101,17 @@
             </div>
             <div class="team-member">
                 <img src="2d/imgs/mithani.jpg" alt="Team Member 2">
-                <h3>Muhammad Usman Mithani<h3>
+                <h3>Muhammad Usman Mithani</h3>
                 <p>Lead Developer</p>
             </div>
             <div class="team-member">
                 <img src="2d/imgs/maisum.jpg" alt="Team Member 3">
-                <h3>Maisum Ali<h3>
+                <h3>Maisum Ali</h3>
                 <p>Physicist<p>
             </div>
             <div class="team-member">
                 <img src="2d/imgs/rufile.jpg" alt="Team Member 3">
-                <h3>Rufile Waseem<h3>
+                <h3>Rufile Waseem</h3>
                 <p>Project Manager<p>
             </div>
         </div>
