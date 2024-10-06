@@ -28,9 +28,9 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 
 ## How to Use
 
-1. **Open the Web App**: Launch the app in your web browser.
-2. **Navigate the Scene**: Use the mouse to rotate, zoom, and pan around the solar system.
-3. **Adjust Time Scale**: Use the slider to speed up or slow down the planetary movements.
+1. **Open the Web App**: Clone the repository and use `python -m http.server 8000` in a terminal window in the same directory to start a local server. Then, navigate to `http://localhost:8000/` in your browser.
+2. **Navigate the Scene**: Select the Viewer you want to use. If you use the 3D viewer, use the mouse or touch controls to rotate, zoom, and pan around the solar system.
+3. **Adjust Time Scale**: Use the sliders to speed up or slow down the planetary movements.
 4. **View Planet Details**: Click on a planet to display its information in the popup.
 
 
