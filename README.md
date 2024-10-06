@@ -5,7 +5,6 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 ## Table of Contents
 
 - [Features](#features)
-- [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [How to Use](#how-to-use)
@@ -20,15 +19,7 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 - **Interactive UI**: Click on any planet to view additional information.
 - **Adjustable Time Scale**: Use a slider to change the speed of time and observe the effects on orbital motion.
 - **Realistic Textures and Atmosphere**: Each planet has unique textures, including Saturn's rings and Venus's atmospheric coloring.
-- **Trail Effects**: Planets leave curved trails as they orbit the Sun, with trails that fade over time.
 
-## Project Structure
-
-- **`index.html`**: The main HTML file containing the UI layout and script references.
-- **`app.js`**: Core JavaScript file where Three.js is initialized, and all celestial objects, animations, and interactions are handled.
-- **`Planet.js`**: A class-based module for defining planet properties and updating their orbits and rotations.
-- **`textures/`**: A folder containing image textures for each planet, including rings and atmospheres.
-- **`assets/`**: Additional assets used for UI components.
 
 ## Technologies Used
 
