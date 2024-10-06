@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Orrery Web App</title>
+    <link rel="icon" type="image/png" href="../../icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="margin: 0; padding: 0;">
+    <div class="controls" style="position: absolute; z-index: 1000; left: 10px; top: 30px; color: white;">
+        <label>
+            <input type="checkbox" id="starsCheckbox" checked>
+            Enable Stars
+        </label> <br>
+        <label style="display: none;">
+            <input type="checkbox" id="planetaryRotationCheckbox" checked style="display: none;">
+            Enable Planetary Rotation
+        </label>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

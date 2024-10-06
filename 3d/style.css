@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    right: 20px; /* Position from the right */
+    top: 50px; /* Position from the top */
+    width: 300px; /* Width of the popup */
+    background-color: rgba(255, 255, 255, 0.9); /* White background with some transparency */
+    border: 1px solid #ccc; /* Border around the popup */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    z-index: 1000; /* Sit on top */
+    transition: opacity 0.3s; /* Fade effect */
+    opacity: 0; /* Invisible by default */
+}
+
+.Planet, .moon {
+    cursor: pointer;
+}
+
+
+.popup-content {
+    padding: 20px; /* Padding inside the popup */
+}
+
+.close-button {
+    float: right; /* Position close button to the right */
+    font-size: 20px; /* Close button size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.popup h2 {
+    margin: 0; /* Remove margin from title */
+}
+
+.popup p {
+    margin-top: 10px; /* Add space above paragraph */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    background-size: cover;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    width: 100%;
+    height: 100%;
+}
+.sun {
+    width: 150px;
+    height: 150px;
+    background-image: url(../imgs/sun.gif);
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    animation: sun 5s linear infinite;
+    transition: all 0.5s ease;
+}
+.star {
+    width: 1px;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+}
+.planet {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    transition: filter 0.2s ease;   
+}
+.planet:hover {
+    filter: drop-shadow(0 0 10px white);
+}
+.pause {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+.zoom-in {
+    width: 225px;
+    height: 225px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 5px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+input[type="range"]:hover {
+    opacity: 1; 
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s;
+}
+
+input[type="checkbox"]:checked {
+    background: #4CAF50;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #ddd;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    font-size: 16px;
+    transition: background 0.2s;
+    top: 1400px;
+}
+
+select:hover {
+    background: #ccc;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+    padding: 50px;
+    border-radius: 20px;
+    line-height: 40px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+
+}
+.modal strong {
+    font-size: medium;
+    font-weight: 800;
+}
+.modal button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+button {
+    scale: 1;
+    transition: scale 0.5s ease-in-out;
+}
+a:hover, button:hover, .pause:hover {
+    scale: 1.1;
+}

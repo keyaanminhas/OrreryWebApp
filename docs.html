@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation: Planetary Coordinates</title>
+    <link rel="icon" type="image/png" href="../icon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        code {
+            background: #333;
+            padding: 2px 4px;
+            border-radius: 4px;
+            color: #e0e0e0;
+        }
+        pre {
+            background: #333;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            color: #e0e0e0;
+        }
+        .endpoint {
+            background: #1e1e1e;
+            border-left: 4px solid #4CAF50;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .response, .parameters {
+            margin: 10px 0;
+            padding: 10px;
+            background: #2c2c2c;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>API Documentation: Keplerian Planetary Coordinates</h1>
+
+    <p>This API provides a convenient way to access planetary data and compute their positions using Julian dates. Keplerian coordinates are used to describe the orbits of planets, which is essential for accurate position calculations. By leveraging this API, users can easily retrieve information about planets and determine their positions at any given time. This is particularly useful for astronomers, educators, and developers who need precise planetary data for simulations, educational purposes, or software development. The lack of other easy-to-use Keplerian Coordinate APIs makes this tool invaluable for anyone interested in celestial mechanics.</p>
+
+    <h2>Base URL Endpoint</h2>
+    <code>http://bursting-bulldog-lucky.ngrok-free.app/</code>
+
+    <h2>Endpoints</h2>
+
+    <div class="endpoint">
+        <h3>GET /planets</h3>
+        <p>Retrieves a list of planets in the solar system.</p>
+
+        <h4>Response</h4>
+        <div class="response">
+            <p>Returns a list of planets.</p>
+            <pre>
+{
+    "planets": ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+}
+            </pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h3>POST /planet-position</h3>
+        <p>Calculates the position of a specified planet based on the provided Julian date. A Julian date is a continuous count of days since the beginning of the Julian Period used primarily by astronomers.</p>
+
+        <h4>Request Parameters</h4>
+        <div class="parameters">
+            <ul>
+                <li><strong>planet_name</strong> (string, required): The name of the planet (e.g., "Earth").</li>
+                <li><strong>julian_date</strong> (float, required): The Julian date for which the position is calculated.</li>
+            </ul>
+        </div>
+
+        <h4>Example Request</h4>
+        <pre>
+POST /planet-position
+Content-Type: application/x-www-form-urlencoded
+
+planet_name=Earth&julian_date=2459580.5
+        </pre>
+
+        <h4>Response</h4>
+        <div class="response">
+            <p>Returns the calculated position of the planet in both astronomical units (AU) and kilometers (km).</p>
+            <pre>
+{
+    "message": "Calculating position for Earth on Julian Date 2459580.5",
+    "X-Coordinate (AU)": 1.000001,
+    "Y-Coordinate (AU)": 0.000001,
+    "Z-Coordinate (AU)": 0.000002,
+    "X-Coordinate (km)": 149597870.7,
+    "Y-Coordinate (km)": 149597870.8,
+    "Z-Coordinate (km)": 149597870.9
+}
+            </pre>
+        </div>
+    </div>
+
+    <h2>Frontend Pages</h2>
+    <p>The following frontend pages are available for user interaction:</p>
+    <ul>
+        <li><strong>/position</strong>: A page to input a planet's name and Julian date to calculate its position.</li>
+    </ul>
+
+    <h2>Usage Example</h2>
+    <p>Here is a brief example of how to use the API with JavaScript to calculate the position of a planet:</p>
+    <pre>
+fetch('http://<your-domain>/position', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: 'planet_name=Earth&julian_date=2459580.5'
+})
+.then(response => response.json())
+.then(data => console.log(data));
+    </pre>
+
+    <h2>Conclusion</h2>
+    <p>This API provides a straightforward way to access planetary data and calculate their positions based on Julian dates, facilitating further exploration and understanding of celestial mechanics.</p>
+</div>
+
+</body>
+</html>

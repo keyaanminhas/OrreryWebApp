@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Squad</title>
+    <link rel="icon" type="image/png" href="../icon.png">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222222;
+            color: #fff;
+        }
+        .team-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .team-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .team-member {
+            background-color: #0a0a0a;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            width: 300px;
+            text-wrap: wrap;
+            text-align: center;
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+        .team-member:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        .team-member img {
+            border-radius: 50%;
+            transform: scale(1);
+            transition: all 0.3s ease;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .team-member img:hover {
+            border-radius: 10%;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        .team-member h3 {
+            margin: 10px 0 5px;
+        }
+        .team-member p {
+            color: #777;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .team-member {
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    <div class="team-section">
+        <h1>Meet the Team</h1>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="2d/imgs/keyaan.jpg" alt="Team Member 1">
+                <h3>Keyaan Minhas</h3>
+                <p>Algorithmic Programmer</p>
+            </div>
+            <div class="team-member">
+                <img src="2d/imgs/mithani.jpg" alt="Team Member 2">
+                <h3>Muhammad Usman Mithani<h3>
+                <p>Lead Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="2d/imgs/maisum.jpg" alt="Team Member 3">
+                <h3>Maisum Ali<h3>
+                <p>Physicist<p>
+            </div>
+            <div class="team-member">
+                <img src="2d/imgs/rufile.jpg" alt="Team Member 3">
+                <h3>Rufile Waseem<h3>
+                <p>Project Manager<p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
