@@ -8,6 +8,7 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [How To Use](#How-to-Use)
+- [Conclusion](#Conclusion)
 
 ## Features
 
