@@ -32,4 +32,9 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 3. **Adjust Time Scale**: Use the slider to speed up or slow down the planetary movements.
 4. **View Planet Details**: Click on a planet to display its information in the popup.
 
+
+## Conclusion
+
+This solar system orrery provides an interactive and educational experience to explore planetary movements and characteristics. By leveraging real physics and visual elements, it aims to enhance understanding of our celestial neighbors. Enjoy your journey through space!
+
    
