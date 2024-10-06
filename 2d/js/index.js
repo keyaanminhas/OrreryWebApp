@@ -181,6 +181,7 @@ slider.style.left = '10px';
 document.body.appendChild(slider);
 
 const sliderLabel = document.createElement('label');
+sliderLabel.style.display = 'none';
 sliderLabel.innerText = `Time Multiplier: ${timeMultiplier}`;
 sliderLabel.style.position = 'absolute';
 sliderLabel.style.top = '20px';
