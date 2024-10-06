@@ -263,7 +263,7 @@ planetGroupSelect.addEventListener('change', (event) => {
 
 function updateRotation(planet, planetEl) {
     let rotationAngle = -10 + (time * 365 / planet.rotation_period) % 360;
-    planetEl.style.transform = `rotate(${rotationAngle}deg)`;
+    planetEl.style.transform = `translate(-50%,-50%) rotate(${rotationAngle}deg)`;
 }
 
 const config = {
