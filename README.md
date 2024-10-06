@@ -7,10 +7,7 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-- [How to Use](#how-to-use)
-- [Customization Options](#customization-options)
-- [Future Enhancements](#future-enhancements)
-- [Acknowledgments](#acknowledgments)
+- [How To Use](#How-to-Use)
 
 ## Features
 
@@ -28,10 +25,11 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 - **HTML/CSS**: Base web technologies for structuring and styling the web app.
 - **NASA Keplerian Data**: Data source for the accurate modeling of planetary orbits.
 
-## Getting Started
+## How to Use
 
-To run the project locally:
+1. **Open the Web App**: Launch the app in your web browser.
+2. **Navigate the Scene**: Use the mouse to rotate, zoom, and pan around the solar system.
+3. **Adjust Time Scale**: Use the slider to speed up or slow down the planetary movements.
+4. **View Planet Details**: Click on a planet to display its information in the popup.
 
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/yourusername/solar-system-orrery.git
+   
