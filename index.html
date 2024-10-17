@@ -15,8 +15,12 @@
             background-image: url('3d/imgs/bg.jpg');
             background-size: cover;
             background-position: center;
-            overflow: hidden;
+            overflow-x: hidden;
             animation: fadeIn 1s ease-in-out;
+        }
+        *::selection{
+            background-color: #4CAF50;
+            color: white;
         }
         nav {
             display: flex;
@@ -69,7 +73,7 @@
             margin-bottom: 20px;
             animation: fadeIn 2s ease-in-out;
         }
-        .content button {
+        button {
             padding: 12px 25px;
             font-size: 30px;
             color: white;
@@ -83,14 +87,72 @@
             border-bottom: 10px solid #184f23;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         }
-        .content button:hover {
+        button:hover {
             background-color: #50dd6c;
             scale: 1.1;
-            border-bottom: 7px solid #4CAF50;
+            border-bottom: 7px solid #184f23;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+        .about-section {
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .about-content h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 500;
+            text-shadow: 2px 2px 4px #4CAF50;
+        }
+        .about-content p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .team-link:hover {
+            background-color: #50dd6c;
+        }
+        footer {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        footer ul li {
+            margin: 0 15px;
+        }
+        a {
+            color: white;
+            text-decoration: 2px solid underline #4CAF50;
+            text-underline-offset: 3px;
+            transition: all 0.3s ease;
+            position: relative;
+            top: 0;
+        }
+        a:hover {
+            top: -2px;
+            color: #50dd6c;
+            text-decoration: 2px solid underline #4CAF50;
+            text-underline-offset: 7px;
+        }
+        footer ul li a:hover {
+            color: #50dd6c;
         }
     </style>
 </head>
@@ -108,5 +170,23 @@
         <h1>Ever wanted to go to space?</h1>
         <a href="3d/index.html"><button>BLAST OFF!</button></a>
     </div>
+    <div class="about-section">
+        <div class="about-content">
+            <h2>WHO ARE WE?</h2>
+            <p>We are a <a href="team.html">group of high school students</a> with a deep interest in Physics and the cosmos. To come clean, this project started out as a fun hackathon hobby project at the beginning, but we soon realized the implications of a having a powerful API and library for this. Many visualisations of the solar system do not show the correct orbital pathways in an interactive nature, usually to avoid complex processing, even such as those available on this website.</p>
+            <p>The problem is, students hence do not learn the correct information about the heavenly bodies and are usually misled their entire lives. To fix this issue, we created an API to offload all the complex math and processing on to our API backend, leaving the frontend for the client lightweight. It is open-source and customizable, even its accuracy! View the git repository <a href="https://github.com/keyaanminhas/OrreryWebApp">here</a></p>
+            <a href="docs.html" class="team-link"><button>View the API docs</button></a>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li><a href="2d/index.html">2D Viewer</a></li>
+                <li><a href="3d/index.html">3D Viewer</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="docs.html">API</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

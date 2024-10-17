@@ -80,15 +80,10 @@
             text-align: center; /* Centered text for results */
         }
 
-        .result h2 {
-            margin-bottom: 10px;
-            font-size: 1.5em; /* Increased font size for the title */
-            color: #007BFF;
-        }
-
-        .result p {
-            margin: 5px 0;
-            font-size: 1.1em; /* Increased font size for results */
+        .result pre {
+            text-align: left; /* Align text to the left */
+            white-space: pre-wrap; /* Wrap long lines */
+            word-wrap: break-word; /* Break long words */
         }
 
         @media (max-width: 400px) {
@@ -107,20 +102,19 @@
         <input type="text" id="planet_name" name="planet_name" required>
 
         <label for="julian_date">Julian Date:</label>
-        <input type="text" id="julian_date" name="julian_date" required>
+        <input type="text" id="julian_date" name="julian_date" >
+
+        <label for="utc_date">UTC date: (ignored if Julian Date is present)</label>
+        <input type="text" id="utc_date" name="utc_date" placeholder="dd-mm-yyyy">
+
+        <label for="delta">deltaE:</label>
+        <input type="text" id="delta" name="delta" placeholder="0.0001">
 
         <input type="submit" value="Submit">
     </form>
 
     <div id="resultContainer" class="result" style="display: none;">
-        <h2>Planet Position:</h2>
-        <p id="message"></p>
-        <p id="x_au"></p>
-        <p id="x_km"></p>
-        <p id="y_au"></p>
-        <p id="y_km"></p>
-        <p id="z_au"></p>
-        <p id="z_km"></p>
+        <pre id="jsonResponse"></pre>
     </div>
 
     <script>
@@ -137,24 +131,20 @@
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
+                    alert('Network response was not ok. Please try again later.');
                 }
 
                 const data = await response.json();
 
-                // Display the results
-                document.getElementById('message').textContent = data.message;
-                document.getElementById('x_au').textContent = `X-Coordinate (AU): ${data['X-Coordinate (AU)']}`;
-                document.getElementById('x_km').textContent = `X-Coordinate (km): ${data['X-Coordinate (km)']}`;
-                document.getElementById('y_au').textContent = `Y-Coordinate (AU): ${data['Y-Coordinate (AU)']}`;
-                document.getElementById('y_km').textContent = `Y-Coordinate (km): ${data['Y-Coordinate (km)']}`;
-                document.getElementById('z_au').textContent = `Z-Coordinate (AU): ${data['Z-Coordinate (AU)']}`;
-                document.getElementById('z_km').textContent = `Z-Coordinate (km): ${data['Z-Coordinate (km)']}`;
+                // Display the entire JSON response
+                document.getElementById('jsonResponse').textContent = JSON.stringify(data, null, 2);
 
                 // Show the result container
                 document.getElementById('resultContainer').style.display = 'block';
 
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
+                alert('There was a problem with the fetch operation. Please try again later.');
             }
         });
     </script>

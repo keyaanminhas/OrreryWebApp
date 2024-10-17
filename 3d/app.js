@@ -85,7 +85,7 @@ controls.dampingFactor = 0.05;
 controls.enableZoom = true; // Allow zooming
 
 // Add a point light to represent the Sun
-const light = new THREE.PointLight(0xfff7cc, 2, 500);
+const light = new THREE.PointLight(0xfff7cc, 2.5, 500);
 light.position.set(0, 0, 0); // Sun at the origin
 scene.add(light);
 
@@ -96,17 +96,17 @@ const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 scene.add(sun);
 
-// Create a star system with 10000 point lights
+// Create a star system with 50 point lights
 const starGeometry = new THREE.BufferGeometry();
 const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1, emissive: 0xffffff });
-for (let i = 0; i < 25; i++) {
-    const starLight = new THREE.PointLight(0xffffff, 0.5, 600); // Increase distance to 1000
+for (let i = 0; i < 100; i++) {
+    const starLight = new THREE.PointLight(0xffffff, 0.5, 1100); // Increase distance to 1000
     let x, y, z;
     do {
-        x = THREE.MathUtils.randFloatSpread(1000);
-        y = THREE.MathUtils.randFloatSpread(1000);
-        z = THREE.MathUtils.randFloatSpread(1000);
-    } while (Math.sqrt(x * x + y * y + z * z) < 700);
+        x = THREE.MathUtils.randFloatSpread(2000);
+        y = THREE.MathUtils.randFloatSpread(2000);
+        z = THREE.MathUtils.randFloatSpread(2000);
+    } while (Math.sqrt(x * x + y * y + z * z) < 1200);
     starLight.position.set(x, y, z);
     scene.add(starLight);
 }

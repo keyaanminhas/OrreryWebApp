@@ -1,4 +1,5 @@
 import numpy as np
+import datetime
 global planet_data
 planet_data = [
     {
@@ -113,7 +114,7 @@ def modulate_mean_anomaly(M):
         M -= 360
     return M
 
-def calculate_coordinates(planet_name, JDate):
+def calculate_coordinates(planet_name, JDate, error_amount=0.0001):
     global planet_data
     planet_name = planet_name.lower().capitalize()
     
@@ -132,6 +133,8 @@ def calculate_coordinates(planet_name, JDate):
     L1 = L[0] + L[1]*T
     long_peri1 = long_peri[0] + long_peri[1]*T
     long_node1 = long_node[0] + long_node[1]*T
+    if error_amount > 0.1 or error_amount < 0.000001:
+        error_amount = 0.0001
 
     peri = long_peri1 - long_node1
     M = L1 - long_peri1 + b*(np.square(T)) + c*(np.cos(f*T)) + s*(np.sin(f*T))
@@ -141,7 +144,7 @@ def calculate_coordinates(planet_name, JDate):
     delta_M = M1 - (E - e2*(np.sin(np.deg2rad(E))))
     delta_E = delta_M/(1 - e1*(np.cos(np.deg2rad(E))))
     E = E + delta_E
-    while np.abs(delta_E) > 0.0001:
+    while np.abs(delta_E) > error_amount:
         delta_M = M1 - (E - e2*(np.sin(np.deg2rad(E))))
         delta_E = delta_M/(1 - e1*(np.cos(np.deg2rad(E))))
         E = E + delta_E
@@ -154,8 +157,21 @@ def calculate_coordinates(planet_name, JDate):
     x_km = x_au*149597870.7
     y_km = y_au*149597870.7
     z_km = z_au*149597870.7
-    return x_au, y_au, z_au, x_km, y_km, z_km
+    return x_au, y_au, z_au, x_km, y_km, z_km, error_amount
 
+def julian_date(current_date=None):
+    if current_date is None:
+        current_date = datetime.datetime.now("%d-%m-%Y")
+    year = current_date.year
+    month = current_date.month
+    day = current_date.day
+    if month <= 2:
+        year -= 1
+        month += 12
+    A = year // 100
+    B = 2 - A + A // 4
+    JD = int(365.25 * (year + 4716)) + int(30.6001 * (month + 1)) + day + B - 1524.5
+    return JD
 
 # x1, y1, z1, x2, y2, z2 = calculate_coordinates("Mercury", 2460589.735716431)
 

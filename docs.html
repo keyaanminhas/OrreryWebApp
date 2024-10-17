@@ -78,9 +78,34 @@
 
 
     <p>This API provides a convenient way to access planetary data and compute their positions using Julian dates. Keplerian coordinates are used to describe the orbits of planets, which is essential for accurate position calculations. By leveraging this API, users can easily retrieve information about planets and determine their positions at any given time. This is particularly useful for astronomers, educators, and developers who need precise planetary data for simulations, educational purposes, or software development. The lack of other easy-to-use Keplerian Coordinate APIs makes this tool invaluable for anyone interested in celestial mechanics.</p>
-
-    <h2>Base URL Endpoint</h2>
-    <code>http://bursting-bulldog-lucky.ngrok-free.app/</code>
+    <h2>Running the API</h2>
+    <p>Before you can use the API, ensure you have the latest version of Python 3 installed on your system. Follow these steps to run the API on your backend:</p>
+    <div class="endpoint">
+        <h3>Prerequisites</h3>
+        <ul>
+            <li>Latest version of <strong>Python 3</strong> installed.</li>
+        </ul>
+    </div>
+    <div class="endpoint">
+        <h3>Steps to Run the API</h3>
+        <ol>
+            <li>Open your terminal or command prompt.</li>
+            <li>Navigate to the directory where your API code is located.</li>
+            <li>Run the following command to start a simple HTTP server:
+                <pre>
+python -m http.server PORT_NUM
+                </pre>
+                
+            <b>NOTE: </b>Ensure that the specified port (PORT_NUM) is free, or the server will fail to run.
+        </ol>
+    </div>
+    <div class="endpoint">
+        <h3>Accessing the API</h3>
+        <p>Once the server is running, you can access the API using the following base URL:</p>
+        <code>http://127.0.0.1:PORT_NUM/</code>
+        <p>If you host the API on a server backend, use the IP address and port of that host, or the domain you connect it to, to access the API for your applications.</p>
+        <p>Please note that you will need to host the API yourself as we, the Concept Squad team, cannot afford to host it.</p>
+    </div>
 
     <h2>Endpoints</h2>
 

@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
+from datetime import datetime
 
-
-from planets_data import calculate_coordinates
+from planets_data import *
 
 
 
@@ -22,19 +22,31 @@ def planet_info():
 def planet_position():
     # Retrieve data from POST request
     planet_name = request.form.get('planet_name')
-    julian_date = request.form.get('julian_date')
+    j_date = request.form.get('julian_date')
+    utc_date = request.form.get('utc_date')
+    if not j_date and not utc_date:
+        utc_date = datetime.datetime.now().strftime("%d-%m-%Y")
+    utc_date = datetime.datetime.strptime(utc_date, "%d-%m-%Y")
+    deltaE = request.form.get('delta') or 0.0001
+    if not j_date and utc_date:
+        j_date = julian_date(utc_date)
 
-    x1, y1,z1, x2,y2,z2 = calculate_coordinates(planet_name, float(julian_date))
+    x1, y1,z1, x2,y2,z2, error = calculate_coordinates(planet_name, float(j_date), float(deltaE))
     
     
     response = {
-        "message": f"Calculating position for {planet_name} on Julian Date {julian_date}",
-        "X-Coordinate (AU)": x1,
-        "Y-Coordinate (AU)": y1,
-        "Z-Coordinate (AU)": z1,
-        "X-Coordinate (km)": x2,
-        "Y-Coordinate (km)": y2,
-        "Z-Coordinate (km)": z2,
+        "au": {
+            "x": x1,
+            "y": y1,
+            "z": z1
+        },
+        "km": {
+            "x": x2,
+            "y": y2,
+            "z": z2,
+        },
+        "deltaE": error,
+        "julianDate": j_date
     }
     return jsonify(response)
 
@@ -46,4 +58,4 @@ def position_page():
     return render_template('planet_position.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host = "0.0.0.0", port = 5000)
+    app.run(host = "0.0.0.0", port = 5000)
