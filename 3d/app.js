@@ -354,28 +354,6 @@ pausePlayButton.addEventListener('click', () => {
 
 // Animation loop
 let lastTime = performance.now();
-const animate = () => {
-    if (!isPaused) {
-        const currentTime = performance.now();
-        const timeElapsed = (currentTime - lastTime) / 1000; // Time in seconds
-        lastTime = currentTime;
-
-        // Update planets and moons
-        for (const planet of planets) {
-            planet.updatePosition(timeElapsed * speedSlider.value); // Update with speed factor
-        }
-        moon.updatePosition(timeElapsed * speedSlider.value); // Update moon
-    }
-
-    // Render scene
-    controls.update(); // Update controls
-    renderer.render(scene, camera);
-
-    requestAnimationFrame(animate);
-};
-
-animate();
-
 // Event listener for mouse clicks on planets
 renderer.domElement.addEventListener('click', (event) => {
     const mouse = new THREE.Vector2();
@@ -573,3 +551,58 @@ zoomSlider.addEventListener('input', (event) => {
     camera.fov = event.target.value;
     camera.updateProjectionMatrix();
 });
+// WASD controls for camera movement
+const moveSpeed = 0.5;
+const keys = { w: false, a: false, s: false, d: false };
+
+document.addEventListener('keydown', (event) => {
+    if (event.key in keys) {
+        keys[event.key] = true;
+    }
+});
+
+document.addEventListener('keyup', (event) => {
+    if (event.key in keys) {
+        keys[event.key] = false;
+    }
+});
+
+const updateCameraPosition = () => {
+    if (keys.w) {
+        camera.position.z -= moveSpeed;
+    }
+    if (keys.s) {
+        camera.position.z += moveSpeed;
+    }
+    if (keys.a) {
+        camera.position.x -= moveSpeed;
+    }
+    if (keys.d) {
+        camera.position.x += moveSpeed;
+    }
+};
+
+const animate = () => {
+    if (!isPaused) {
+        const currentTime = performance.now();
+        const timeElapsed = (currentTime - lastTime) / 1000; // Time in seconds
+        lastTime = currentTime;
+
+        // Update planets and moons
+        for (const planet of planets) {
+            planet.updatePosition(timeElapsed * speedSlider.value); // Update with speed factor
+        }
+        moon.updatePosition(timeElapsed * speedSlider.value); // Update moon
+    }
+
+    // Update camera position based on WASD input
+    updateCameraPosition();
+
+    // Render scene
+    controls.update(); // Update controls
+    renderer.render(scene, camera);
+
+    requestAnimationFrame(animate);
+};
+
+animate();

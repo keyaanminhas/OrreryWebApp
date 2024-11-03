@@ -32,7 +32,7 @@ def planet_position():
         j_date = julian_date(utc_date)
 
     x1, y1,z1, x2,y2,z2, error = calculate_coordinates(planet_name, float(j_date), float(deltaE))
-    
+
     
     response = {
         "au": {

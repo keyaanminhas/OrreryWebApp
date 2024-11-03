@@ -21,7 +21,7 @@ This project is a 3D solar system simulation built with Three.js, visualizing th
 
 ## Technologies Used
 
-- **Three.js**: 3D rendering library used for creating the orrery and animations.
+- **Three.js**: 3D rendering library used for creating the orrery app and animations.
 - **JavaScript (ES6)**: Programming language for logic, interactions, and animations.
 - **HTML/CSS**: Base web technologies for structuring and styling the web app.
 - **NASA Keplerian Data**: Data source for the accurate modeling of planetary orbits.
